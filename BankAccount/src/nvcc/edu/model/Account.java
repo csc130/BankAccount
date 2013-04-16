@@ -1,3 +1,5 @@
+package nvcc.edu.model;
+
 import java.util.Random;
 
 
@@ -44,7 +46,7 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [name=" + name + ", acNum=" + acNum + "]";
+		return name +" " + acNum ;
 	}
 
 }

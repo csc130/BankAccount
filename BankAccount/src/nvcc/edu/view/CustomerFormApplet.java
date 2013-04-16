@@ -1,5 +1,9 @@
-
+package nvcc.edu.view;
 import javax.swing.*;
+
+import nvcc.edu.file.utils.TextFileOutputDemo;
+import nvcc.edu.model.Account;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
@@ -53,8 +57,10 @@ public class CustomerFormApplet extends JApplet implements ActionListener {
 			text1.setText("New Account Created!");
 			//Step3: create new account
 			Account theAc = new Account(txtName.getText());
+			//Step4: write to text file
+			TextFileOutputDemo.write(theAc);
 			accountList[Account.getNumAccount()-1] = theAc;
-			//Step4: Show customer info.
+			//Step5: Show customer info.
 			txtArea.setText(theAc.toString());
 			//createAcButton.setEnabled(false);
 			createAcButton.setVisible(false);
