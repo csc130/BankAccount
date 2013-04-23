@@ -17,7 +17,7 @@ public class CustomerFormApplet extends JApplet implements ActionListener {
 	private JLabel label1,label2;
 	private JTextField txtName, text1;
 	private JTextArea txtArea;
-	private JButton createAcButton, listReportButton;
+	private JButton createAcButton, listReportButton, adminButton;
 	private final int SIZE =10;
 	private Account accountList [] = new Account[SIZE];
 	public void init() {
@@ -34,6 +34,9 @@ public class CustomerFormApplet extends JApplet implements ActionListener {
 		listReportButton = new JButton("Print Account List");
 		listReportButton.addActionListener(this);
 		
+		adminButton = new JButton("Admin");
+		adminButton.addActionListener(this);
+		
 		txtName = new JTextField("Enter Customer Name");
 		txtArea = new JTextArea();
 		// Add labels:
@@ -44,6 +47,8 @@ public class CustomerFormApplet extends JApplet implements ActionListener {
 		contentPane.add(txtName);
 		contentPane.add(createAcButton);
 		contentPane.add(listReportButton);
+		contentPane.add(adminButton);
+		
 		contentPane.add(txtArea);
 	}
 
@@ -67,7 +72,13 @@ public class CustomerFormApplet extends JApplet implements ActionListener {
 		} else if(e.getActionCommand().equals("Print Account List")){
 			for(int i=0; i<accountList.length; i++)
 				System.out.println("account["+i+"]"+"\t"+accountList[i]);
-		} else {
+		} else if(e.getActionCommand().equals("Admin")){
+			
+			AdminGUI admin = new AdminGUI();
+			admin.createAndShowGUI();
+		
+		} else
+		{
 			txtArea.setText("Error!");
 		}
 	}
